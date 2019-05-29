@@ -1,53 +1,15 @@
 import UIKit
 
-public protocol configable {
-  var minimumValue: CGFloat { get set }
-  var maximumValue: UInt { get set }
-  var value: Float { get set }
-  var spacing: CGFloat { get set }
-  var allowHalfMode: Bool { get set }
-  var accurateHalfMode: Bool { get set }
-  var emptyImage: UIImage? { get set }
-  var halfImage: UIImage? { get set }
-  var filledImage: UIImage? { get set }
-  var borderColor: UIColor? { get set }
-  var emptyStarColor: UIColor { get set }
-  var shouldUseImage: Bool { get }
-  var enabledTouch: Bool { get set }
-  var shouldBecomeFirstResponder: Bool { get set }
-  var shouldBegingCompletion: (() -> Bool)? { get }
-}
-
 public class SCReviewRatingView: UIControl {
 
-  private var _minimumValue: CGFloat = 0
-  private var _maximumValue: UInt = 5
-  private var _value: Float = 0
-  private var _spacing: CGFloat = 5.0
-  private var _continuous: Bool = true
-  private var _borderWidth: CGFloat = 1.0
-  private var _emptyStarColor = UIColor.clear
-  private var _allowHalfMode: Bool = true
-  private var _accurateHalfMode: Bool = true
-  private var _emptyImage: UIImage?
-  private var _halfImage: UIImage?
-  private var _filledImage: UIImage?
-  private var _borderColor: UIColor?
+  var enabledTouch: Bool = true
+  var shouldBecomeFirstResponder: Bool = true
+  var shouldBeginCompletion: (() -> Bool)?
 
-  private var _enabledTouch: Bool = true
-  private var _shouldBecomeFirstResponder: Bool = true
-  private var _shouldBegingCompletion: (() -> Bool)?
-
-  private lazy var _starDrawer: StarDrawer = {
-    return StarDrawer(
-      shouldUseImage: false,
-      filledImage: _filledImage,
-      emptyImage: _emptyImage,
-      halfImage: _halfImage,
-      borderColor: _borderColor,
-      emptyStarColor: _emptyStarColor,
-      borderWidth: _borderWidth
-    )
+  lazy var config: RatingConfig = {
+    var config = RatingConfig()
+    config.tintColor = self.tintColor
+    return config
   }()
 
   override init(frame: CGRect) {
@@ -81,43 +43,23 @@ public class SCReviewRatingView: UIControl {
   }
 
   override public func draw(_ rect: CGRect) {
-    guard
-      let context = UIGraphicsGetCurrentContext(),
-      let backgrouncColor = self.backgroundColor
-      else { return }
-
-    context.setFillColor(backgrouncColor.cgColor)
-    context.fill(rect)
-
-    let availableWidth = rect.size.width - (_spacing * (_maximumValue.toCGFloat() - 1)) - 2
-    let cellWidth = availableWidth / _maximumValue.toCGFloat()
-    var side = cellWidth <= rect.size.height ? cellWidth : rect.size.height
-    side = shouldUseImage ? side : side - _borderWidth
-
-    for index in 0..<_maximumValue {
-      let center = getDrawCenter(rect, cellWidth: cellWidth, index: index)
-      let frame = getDrawFrame(center, side: side)
-      let highlighted = Float(index + 1) <= ceilf(_value)
-
-      if _allowHalfMode && highlighted && Float(index + 1) > _value {
-        if _accurateHalfMode {
-          _starDrawer.drawAccurateStar(withFrame: frame, tintColor: tintColor, progress: _value.toCGFloat() - index.toCGFloat())
-          return
-        }
-        _starDrawer.drawHalfStar(withFrame: frame, tintColor: tintColor)
-        return
-      }
-
-      _starDrawer.drawStar(withFrame: frame, tintColor: tintColor, highlighted: highlighted)
+    guard let backgroundColor = self.backgroundColor else {
+      return
     }
+
+    let shapeRatingDrawing = ShapeRatingDrawing(shape: StarShape(), config: config)
+    let imageRatingDrawing = ImageRatingDrawing(config: config)
+    let ratingDrawing = RatingDrawing(shapeRatingDrawer: shapeRatingDrawing, imageRatingDrawer: imageRatingDrawing, shouldUseImage: config.shouldUseImage)
+    let drawing = Drawing(config: config, backgroundColor: backgroundColor, ratingDrawing: ratingDrawing)
+    drawing.drawRating(frame: rect)
   }
 
   public override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
-    if !self.isEnabled || !_enabledTouch {
+    if !self.isEnabled || !enabledTouch {
       return false
     }
     super.beginTracking(touch, with: event)
-    if _shouldBecomeFirstResponder && !isFirstResponder {
+    if shouldBecomeFirstResponder && !isFirstResponder {
       becomeFirstResponder()
     }
     handle(touch: touch)
@@ -125,7 +67,7 @@ public class SCReviewRatingView: UIControl {
   }
 
   public override func continueTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
-    if !isEnabled || !_enabledTouch {
+    if !isEnabled || !enabledTouch {
       return false
     }
     super.continueTracking(touch, with: event)
@@ -134,11 +76,11 @@ public class SCReviewRatingView: UIControl {
   }
 
   public override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
-    if !self.isEnabled || !_enabledTouch {
+    if !self.isEnabled || !enabledTouch {
       return
     }
     super.endTracking(touch, with: event)
-    if _shouldBecomeFirstResponder && !isFirstResponder {
+    if shouldBecomeFirstResponder && !isFirstResponder {
       becomeFirstResponder()
     }
 
@@ -146,14 +88,14 @@ public class SCReviewRatingView: UIControl {
       handle(touch: touch)
     }
 
-    if !_continuous {
+    if !config.continuous {
       sendActions(for: .valueChanged)
     }
   }
 
   public override func cancelTracking(with event: UIEvent?) {
     super.cancelTracking(with: event)
-    if _shouldBecomeFirstResponder && isFirstResponder {
+    if shouldBecomeFirstResponder && isFirstResponder {
       resignFirstResponder()
     }
   }
@@ -162,7 +104,7 @@ public class SCReviewRatingView: UIControl {
     if gestureRecognizer.view == self {
       return !isUserInteractionEnabled
     }
-    guard let closure = _shouldBegingCompletion else {
+    guard let closure = shouldBeginCompletion else {
       return false
     }
     return closure()
@@ -171,12 +113,12 @@ public class SCReviewRatingView: UIControl {
   // MARK: - First responder
 
   public override var canBecomeFocused: Bool {
-    return _shouldBecomeFirstResponder
+    return shouldBecomeFirstResponder
   }
 
   public override var intrinsicContentSize: CGSize {
     let height: CGFloat = 44.0
-    let width = _maximumValue.toCGFloat() * height + (_maximumValue - 1).toCGFloat() * _spacing
+    let width = config.maximumValue.toCGFloat() * height + (config.maximumValue - 1).toCGFloat() * config.spacing
     return .init(width: width, height: height)
   }
 
@@ -202,7 +144,7 @@ public class SCReviewRatingView: UIControl {
 
   public override var accessibilityValue: String? {
     willSet {
-      accessibilityValue = self.value.description
+      accessibilityValue = config.currentValue.description
     }
   }
 
@@ -211,163 +153,13 @@ public class SCReviewRatingView: UIControl {
   }
 
   public override func accessibilityIncrement() {
-    let aValue = value + (allowHalfMode ? 0.5 : 1.0)
+    let aValue = config.currentValue + (config.allowHalfMode ? 0.5 : 1.0)
     changedValueAndChangedAction(to: aValue, sendAction: true)
   }
 
   public override func accessibilityDecrement() {
-    let aValue = value - (allowHalfMode ? 0.5 : 1.0)
+    let aValue = config.currentValue - (config.allowHalfMode ? 0.5 : 1.0)
     changedValueAndChangedAction(to: aValue, sendAction: true)
-  }
-}
-
-extension SCReviewRatingView: configable {
-  public var emptyStarColor: UIColor {
-    get {
-      return _emptyStarColor
-    }
-    set {
-      if _emptyStarColor == newValue { return }
-      _emptyStarColor = newValue
-    }
-  }
-
-  public var shouldBegingCompletion: (() -> Bool)? {
-    return _shouldBegingCompletion
-  }
-
-  public var minimumValue: CGFloat {
-    get {
-      return max(_minimumValue, 0)
-    }
-    set {
-      if _minimumValue == newValue { return }
-      _minimumValue = newValue
-      setNeedsDisplay()
-    }
-  }
-
-  public var maximumValue: UInt {
-    get {
-      return UInt(max(_minimumValue, _maximumValue.toCGFloat()))
-    }
-    set {
-      if _maximumValue == newValue { return }
-      setNeedsDisplay()
-      invalidateIntrinsicContentSize()
-    }
-  }
-
-  public var value: Float {
-    get {
-      return min(max(_value, _minimumValue.toFloat()), _maximumValue.toFloat())
-    }
-    set {
-      changedValueAndChangedAction(to: newValue, sendAction: false)
-    }
-  }
-
-  public var spacing: CGFloat {
-    get {
-      return _spacing
-    }
-    set {
-      _spacing = max(newValue, 0)
-      setNeedsDisplay()
-    }
-  }
-
-  public var allowHalfMode: Bool {
-    get {
-      return _allowHalfMode
-    }
-    set {
-      if _allowHalfMode == newValue { return }
-      _allowHalfMode = newValue
-      setNeedsDisplay()
-    }
-  }
-
-  public var accurateHalfMode: Bool {
-    get {
-      return _accurateHalfMode
-    }
-    set {
-      if _accurateHalfMode == newValue { return }
-      _accurateHalfMode = newValue
-      setNeedsDisplay()
-    }
-  }
-
-  public var emptyImage: UIImage? {
-    get {
-      return _emptyImage
-    }
-    set {
-      if _emptyImage == newValue { return }
-      _emptyImage = newValue
-      setNeedsDisplay()
-    }
-  }
-
-  public var halfImage: UIImage? {
-    get {
-      return _halfImage
-    }
-    set {
-      if _halfImage == newValue { return }
-      _halfImage = newValue
-      setNeedsDisplay()
-    }
-  }
-
-  public var filledImage: UIImage? {
-    get {
-      return _filledImage
-    }
-    set {
-      if _filledImage == newValue { return }
-      _filledImage = newValue
-      setNeedsDisplay()
-    }
-  }
-
-  public var borderColor: UIColor? {
-    get {
-      if _borderColor == nil {
-        return tintColor
-      }
-      return _borderColor
-    }
-    set {
-      if _borderColor == newValue { return }
-      _borderColor = newValue
-      setNeedsDisplay()
-    }
-  }
-
-  public var shouldUseImage: Bool {
-    return emptyImage != nil && filledImage != nil
-  }
-
-  public var enabledTouch: Bool {
-    get {
-      return _enabledTouch
-    }
-    set {
-      if _enabledTouch == newValue { return }
-      _enabledTouch = newValue
-    }
-  }
-
-  public var shouldBecomeFirstResponder: Bool {
-    get {
-      return _shouldBecomeFirstResponder
-    }
-    set {
-      if _shouldBecomeFirstResponder == newValue { return }
-      _shouldBecomeFirstResponder = newValue
-    }
   }
 }
 
@@ -391,10 +183,10 @@ extension SCReviewRatingView {
 
   private func changedValueAndChangedAction(to aValue: Float, sendAction: Bool) {
     willChangeValue(forKey: "value")
-    if _value == aValue && aValue < _minimumValue.toFloat() && aValue > maximumValue.toFloat() {
+    if config.currentValue == aValue && aValue < config.minimumValue.toFloat() && aValue > config.maximumValue.toFloat() {
       return
     }
-    _value = aValue
+    config.currentValue = aValue
     if sendAction {
       sendActions(for: .valueChanged)
     }
@@ -405,7 +197,7 @@ extension SCReviewRatingView {
   private func getDrawCenter(_ rect: CGRect, cellWidth: CGFloat, index: UInt) -> CGPoint {
     let cgFloatIndex = CGFloat(index)
     return .init(
-      x: (cellWidth * cgFloatIndex) + cellWidth / 2 + _spacing + 1,
+      x: (cellWidth * cgFloatIndex) + cellWidth / 2 + config.spacing + 1,
       y: rect.size.height / 2
     )
   }
@@ -421,12 +213,12 @@ extension SCReviewRatingView {
 
   func handle(touch: UITouch) {
 
-    let cellWidth = bounds.size.width / _maximumValue.toCGFloat()
+    let cellWidth = bounds.size.width / config.maximumValue.toCGFloat()
     let location = touch.location(in: self)
     var value: Float = (location.x / cellWidth).toFloat()
-
-    if _allowHalfMode {
-      if !_accurateHalfMode {
+    
+    if config.allowHalfMode {
+      if !config.allowHalfMode {
         if (value + 0.5) < ceilf(value) {
           value = floor(value)
         } else {
@@ -437,7 +229,7 @@ extension SCReviewRatingView {
       value = ceilf(value)
     }
 
-    changedValueAndChangedAction(to: value, sendAction: _continuous)
+    changedValueAndChangedAction(to: value, sendAction: config.continuous)
   }
 
 }
