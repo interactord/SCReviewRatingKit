@@ -11,11 +11,12 @@
 		299A4131229C8A09007192A5 /* SCReviewRatingKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299A4130229C8A09007192A5 /* SCReviewRatingKitTests.swift */; };
 		299A4133229C8A09007192A5 /* SCReviewRatingKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 299A4125229C8A09007192A5 /* SCReviewRatingKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		299A4152229C997E007192A5 /* SCReviewRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299A4151229C997E007192A5 /* SCReviewRatingView.swift */; };
-		299A4154229C9BA8007192A5 /* DefaultSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299A4153229C9BA8007192A5 /* DefaultSettings.swift */; };
 		299A4157229CA5B8007192A5 /* UInt+Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299A4156229CA5B8007192A5 /* UInt+Converter.swift */; };
 		29CC80D6229CEA6F00BD7B0E /* CGFloat+Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CC80D5229CEA6F00BD7B0E /* CGFloat+Converter.swift */; };
 		29CC80D8229CEAB300BD7B0E /* Float+Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CC80D7229CEAB300BD7B0E /* Float+Converter.swift */; };
 		29CC80DC229D0F8900BD7B0E /* Double+Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CC80DB229D0F8900BD7B0E /* Double+Converter.swift */; };
+		29CC80DE229E555500BD7B0E /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CC80DD229E555500BD7B0E /* Configuration.swift */; };
+		29CC80E0229E562B00BD7B0E /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CC80DF229E562B00BD7B0E /* BaseView.swift */; };
 		F426E007ECB99EA42F8283A8 /* ImageRatingDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F426E8941598A4C38FB06905 /* ImageRatingDrawable.swift */; };
 		F426E2ADA48AFE77E27B6E36 /* StarShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = F426E618D861CCDAB76B47AF /* StarShape.swift */; };
 		F426E367A182219409C427D1 /* Shadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F426E5AF12234E488BA318D9 /* Shadable.swift */; };
@@ -47,11 +48,12 @@
 		299A4130229C8A09007192A5 /* SCReviewRatingKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCReviewRatingKitTests.swift; sourceTree = "<group>"; };
 		299A4132229C8A09007192A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		299A4151229C997E007192A5 /* SCReviewRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCReviewRatingView.swift; sourceTree = "<group>"; };
-		299A4153229C9BA8007192A5 /* DefaultSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSettings.swift; sourceTree = "<group>"; };
 		299A4156229CA5B8007192A5 /* UInt+Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt+Converter.swift"; sourceTree = "<group>"; };
 		29CC80D5229CEA6F00BD7B0E /* CGFloat+Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Converter.swift"; sourceTree = "<group>"; };
 		29CC80D7229CEAB300BD7B0E /* Float+Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+Converter.swift"; sourceTree = "<group>"; };
 		29CC80DB229D0F8900BD7B0E /* Double+Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Converter.swift"; sourceTree = "<group>"; };
+		29CC80DD229E555500BD7B0E /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		29CC80DF229E562B00BD7B0E /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		F426E2C8FB3450753482763B /* Drawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drawable.swift; sourceTree = "<group>"; };
 		F426E5AF12234E488BA318D9 /* Shadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shadable.swift; sourceTree = "<group>"; };
 		F426E5F535F9FA55D6F8A516 /* RatingConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingConfig.swift; sourceTree = "<group>"; };
@@ -109,7 +111,7 @@
 				299A4125229C8A09007192A5 /* SCReviewRatingKit.h */,
 				299A4126229C8A09007192A5 /* Info.plist */,
 				299A4151229C997E007192A5 /* SCReviewRatingView.swift */,
-				299A4153229C9BA8007192A5 /* DefaultSettings.swift */,
+				29CC80DF229E562B00BD7B0E /* BaseView.swift */,
 				F426EEC54081C3D7401A3873 /* Draw */,
 				F426E4D653C3EF5E05AEA34B /* Config */,
 				F426E92921483C839B3C21F8 /* Shape */,
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				F426E5F535F9FA55D6F8A516 /* RatingConfig.swift */,
+				29CC80DD229E555500BD7B0E /* Configuration.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -313,7 +316,6 @@
 				29CC80D8229CEAB300BD7B0E /* Float+Converter.swift in Sources */,
 				29CC80D6229CEA6F00BD7B0E /* CGFloat+Converter.swift in Sources */,
 				29CC80DC229D0F8900BD7B0E /* Double+Converter.swift in Sources */,
-				299A4154229C9BA8007192A5 /* DefaultSettings.swift in Sources */,
 				299A4152229C997E007192A5 /* SCReviewRatingView.swift in Sources */,
 				F426EC66276493E13D6C66C6 /* Drawable.swift in Sources */,
 				F426E6E56750590A263CCE7D /* Drawing.swift in Sources */,
@@ -321,9 +323,11 @@
 				F426EA8DB5268E3442912E14 /* RatingDrawable.swift in Sources */,
 				F426E007ECB99EA42F8283A8 /* ImageRatingDrawable.swift in Sources */,
 				F426EC9DD8234D8594D1ECB9 /* ShapeRatingDrawable.swift in Sources */,
+				29CC80DE229E555500BD7B0E /* Configuration.swift in Sources */,
 				F426EC063A832573EDD53211 /* ShapeRatingDrawing.swift in Sources */,
 				F426E2ADA48AFE77E27B6E36 /* StarShape.swift in Sources */,
 				F426E367A182219409C427D1 /* Shadable.swift in Sources */,
+				29CC80E0229E562B00BD7B0E /* BaseView.swift in Sources */,
 				F426ECE1EF778683DFD77FEB /* ImageRatingDrawing.swift in Sources */,
 				F426EB40CEE1B72AEF9825DC /* RatingDrawing.swift in Sources */,
 			);

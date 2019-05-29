@@ -14,14 +14,16 @@ class ViewController: UIViewController {
 
   lazy var reviewStarView: SCReviewRatingView = {
     let view = SCReviewRatingView()
-    view.isOpaque = false
+    view.isOpaque = true
+    view.backgroundColor = .clear
+    view.tintColor = .red
     return view
   }()
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    view.backgroundColor = .red
+    view.backgroundColor = .white
     view.addSubview(reviewStarView)
 
     reviewStarView.translatesAutoresizingMaskIntoConstraints = false

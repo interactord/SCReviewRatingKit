@@ -17,16 +17,16 @@ public struct RatingConfig {
   var accurateHalfMode: Bool
   var continuous: Bool
 
-  public init() {
+  public init(tintColor: UIColor) {
     self.shouldUseImage = false
     self.filledImage = nil
     self.emptyImage = nil
     self.halfImage = nil
-    self.tintColor = .white
     self.minimumValue = 0
     self.maximumValue = 5
     self.currentValue = 1.2
-    self.borderColor = nil
+    self.tintColor = tintColor
+    self.borderColor = tintColor
     self.emptyStarColor = .clear
     self.borderWidth = 1.0
     self.spacing = 5.0
