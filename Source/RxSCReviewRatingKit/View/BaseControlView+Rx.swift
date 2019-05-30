@@ -1,7 +1,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import SCReviewRatingKit
 
 public extension Reactive where Base: BaseControlView {
 

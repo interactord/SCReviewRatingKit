@@ -7,6 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2954148E22A024A500EAE8D4 /* BaseControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CC80DF229E562B00BD7B0E /* BaseControlView.swift */; };
+		2954148F22A024B200EAE8D4 /* SCReviewRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299A4151229C997E007192A5 /* SCReviewRatingView.swift */; };
+		2954149022A024B200EAE8D4 /* BaseControlView+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EE96AE22A00C6000D84EA8 /* BaseControlView+Configuration.swift */; };
+		2954149122A024B700EAE8D4 /* UInt+Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299A4156229CA5B8007192A5 /* UInt+Converter.swift */; };
+		2954149222A024B700EAE8D4 /* CGFloat+Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CC80D5229CEA6F00BD7B0E /* CGFloat+Converter.swift */; };
+		2954149322A024B700EAE8D4 /* Float+Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CC80D7229CEAB300BD7B0E /* Float+Converter.swift */; };
+		2954149422A024B700EAE8D4 /* Double+Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CC80DB229D0F8900BD7B0E /* Double+Converter.swift */; };
+		2954149522A024BC00EAE8D4 /* Buildable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CC80E4229F91C700BD7B0E /* Buildable.swift */; };
+		2954149622A024BC00EAE8D4 /* RatingStarBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CC80E6229F927100BD7B0E /* RatingStarBuilder.swift */; };
+		2954149722A024CB00EAE8D4 /* RatingConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F426E5F535F9FA55D6F8A516 /* RatingConfig.swift */; };
+		2954149822A024CB00EAE8D4 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CC80DD229E555500BD7B0E /* Configuration.swift */; };
+		2954149922A024CE00EAE8D4 /* Drawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F426E2C8FB3450753482763B /* Drawable.swift */; };
+		2954149A22A024CE00EAE8D4 /* ImageRatingDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F426E8941598A4C38FB06905 /* ImageRatingDrawable.swift */; };
+		2954149B22A024CE00EAE8D4 /* RatingDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F426EC74A514340F058447EA /* RatingDrawable.swift */; };
+		2954149C22A024CE00EAE8D4 /* ShapeRatingDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F426E8BA618DAB08EEE3344C /* ShapeRatingDrawable.swift */; };
+		2954149D22A024D300EAE8D4 /* Drawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F426EFC3744B2AAD24A0FD60 /* Drawing.swift */; };
+		2954149E22A024D300EAE8D4 /* ShapeRatingDrawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F426E76A99C148ED9C1440BA /* ShapeRatingDrawing.swift */; };
+		2954149F22A024D300EAE8D4 /* ImageRatingDrawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F426EBCB0D7F79FD3DA6569B /* ImageRatingDrawing.swift */; };
+		295414A022A024D300EAE8D4 /* RatingDrawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F426EB6C38A1EA970CFFCD1C /* RatingDrawing.swift */; };
+		295414A122A024D900EAE8D4 /* StarShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = F426E618D861CCDAB76B47AF /* StarShape.swift */; };
+		295414A222A024D900EAE8D4 /* Shadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F426E5AF12234E488BA318D9 /* Shadable.swift */; };
 		299A412C229C8A09007192A5 /* SCReviewRatingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299A4122229C8A09007192A5 /* SCReviewRatingKit.framework */; };
 		299A4131229C8A09007192A5 /* SCReviewRatingKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299A4130229C8A09007192A5 /* SCReviewRatingKitTests.swift */; };
 		299A4133229C8A09007192A5 /* SCReviewRatingKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 299A4125229C8A09007192A5 /* SCReviewRatingKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -186,14 +207,14 @@
 		299A4124229C8A09007192A5 /* SCReviewRatingKit */ = {
 			isa = PBXGroup;
 			children = (
-				29CC80E3229F91B700BD7B0E /* Builder */,
-				29CC80E1229F89FB00BD7B0E /* View */,
-				299A4155229CA5A2007192A5 /* Extensions */,
 				299A4125229C8A09007192A5 /* SCReviewRatingKit.h */,
 				299A4126229C8A09007192A5 /* Info.plist */,
-				F426EEC54081C3D7401A3873 /* Draw */,
+				29CC80E3229F91B700BD7B0E /* Builder */,
 				F426E4D653C3EF5E05AEA34B /* Config */,
+				F426EEC54081C3D7401A3873 /* Draw */,
+				299A4155229CA5A2007192A5 /* Extensions */,
 				F426E92921483C839B3C21F8 /* Shape */,
+				29CC80E1229F89FB00BD7B0E /* View */,
 			);
 			path = SCReviewRatingKit;
 			sourceTree = "<group>";
@@ -678,7 +699,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2954149A22A024CE00EAE8D4 /* ImageRatingDrawable.swift in Sources */,
+				2954149D22A024D300EAE8D4 /* Drawing.swift in Sources */,
+				2954149022A024B200EAE8D4 /* BaseControlView+Configuration.swift in Sources */,
+				2954149122A024B700EAE8D4 /* UInt+Converter.swift in Sources */,
+				2954149722A024CB00EAE8D4 /* RatingConfig.swift in Sources */,
+				2954148F22A024B200EAE8D4 /* SCReviewRatingView.swift in Sources */,
+				2954149B22A024CE00EAE8D4 /* RatingDrawable.swift in Sources */,
+				2954149F22A024D300EAE8D4 /* ImageRatingDrawing.swift in Sources */,
+				295414A122A024D900EAE8D4 /* StarShape.swift in Sources */,
 				29EE96CD22A01A8400D84EA8 /* BaseControlView+Rx.swift in Sources */,
+				2954148E22A024A500EAE8D4 /* BaseControlView.swift in Sources */,
+				2954149E22A024D300EAE8D4 /* ShapeRatingDrawing.swift in Sources */,
+				295414A022A024D300EAE8D4 /* RatingDrawing.swift in Sources */,
+				2954149822A024CB00EAE8D4 /* Configuration.swift in Sources */,
+				2954149222A024B700EAE8D4 /* CGFloat+Converter.swift in Sources */,
+				295414A222A024D900EAE8D4 /* Shadable.swift in Sources */,
+				2954149622A024BC00EAE8D4 /* RatingStarBuilder.swift in Sources */,
+				2954149522A024BC00EAE8D4 /* Buildable.swift in Sources */,
+				2954149C22A024CE00EAE8D4 /* ShapeRatingDrawable.swift in Sources */,
+				2954149322A024B700EAE8D4 /* Float+Converter.swift in Sources */,
+				2954149422A024B700EAE8D4 /* Double+Converter.swift in Sources */,
+				2954149922A024CE00EAE8D4 /* Drawable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
