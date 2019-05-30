@@ -28,6 +28,7 @@ Pod::Spec.new do |s|
         ss.source_files = "Source/RxSCReviewRatingKit/**/*.swift"
         ss.dependency "RxSwift", "~> 5"
         ss.dependency "RxCocoa", "~> 5"
+        ss.dependency 'SCReviewRatingKit/Core'
         ss.framework = "UIKit", "Foundation"
     end
   
