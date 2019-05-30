@@ -39,12 +39,10 @@ extension Drawing: Drawable {
         if config.accurateHalfMode {
           let progress = config.currentValue.toCGFloat() - index.toCGFloat()
           ratingDrawing.drawAccurateRating(frame: aFrame, progress: progress)
-          return
+        } else {
+          ratingDrawing.drawHalfRating(frame: aFrame)
         }
-        ratingDrawing.drawHalfRating(frame: aFrame)
-        return
       }
-
       ratingDrawing.drawRating(frame: aFrame, highlighted: highlighted)
     }
   }
