@@ -108,7 +108,7 @@ extension BaseControlView: Configuration {
 
   public var minimumValue: UInt {
     get {
-      return config.minimumValue
+      return max(config.minimumValue, 0)
     }
     set {
       if config.minimumValue == newValue {
@@ -121,7 +121,7 @@ extension BaseControlView: Configuration {
 
   public var maximumValue: UInt {
     get {
-      return config.maximumValue
+      return max(config.minimumValue, config.maximumValue)
     }
     set {
       if config.maximumValue == newValue {
@@ -134,7 +134,7 @@ extension BaseControlView: Configuration {
 
   public var currentValue: Float {
     get {
-      return config.currentValue
+      return min(max(config.currentValue, config.minimumValue.toFloat()), maximumValue.toFloat())
     }
     set {
       if config.currentValue == newValue {
