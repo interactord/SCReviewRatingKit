@@ -107,11 +107,10 @@
 		299A4124229C8A09007192A5 /* SCReviewRatingKit */ = {
 			isa = PBXGroup;
 			children = (
+				29CC80E1229F89FB00BD7B0E /* View */,
 				299A4155229CA5A2007192A5 /* Extensions */,
 				299A4125229C8A09007192A5 /* SCReviewRatingKit.h */,
 				299A4126229C8A09007192A5 /* Info.plist */,
-				299A4151229C997E007192A5 /* SCReviewRatingView.swift */,
-				29CC80DF229E562B00BD7B0E /* BaseView.swift */,
 				F426EEC54081C3D7401A3873 /* Draw */,
 				F426E4D653C3EF5E05AEA34B /* Config */,
 				F426E92921483C839B3C21F8 /* Shape */,
@@ -137,6 +136,15 @@
 				29CC80DB229D0F8900BD7B0E /* Double+Converter.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		29CC80E1229F89FB00BD7B0E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				299A4151229C997E007192A5 /* SCReviewRatingView.swift */,
+				29CC80DF229E562B00BD7B0E /* BaseView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		F426E0C7B9E52C48B4CCED77 /* Implementation */ = {
