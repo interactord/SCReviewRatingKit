@@ -1,7 +1,6 @@
 import Foundation
 
 protocol Configuration {
-  var config: RatingConfig { get }
   var shouldUseImage: Bool { get set }
   var filledImage: UIImage? { get set }
   var emptyImage: UIImage? { get set }
