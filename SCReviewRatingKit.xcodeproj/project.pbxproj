@@ -16,11 +16,11 @@
 		29CC80D8229CEAB300BD7B0E /* Float+Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CC80D7229CEAB300BD7B0E /* Float+Converter.swift */; };
 		29CC80DC229D0F8900BD7B0E /* Double+Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CC80DB229D0F8900BD7B0E /* Double+Converter.swift */; };
 		29CC80DE229E555500BD7B0E /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CC80DD229E555500BD7B0E /* Configuration.swift */; };
-		29CC80E0229E562B00BD7B0E /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CC80DF229E562B00BD7B0E /* BaseView.swift */; };
+		29CC80E0229E562B00BD7B0E /* BaseControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CC80DF229E562B00BD7B0E /* BaseControlView.swift */; };
 		29CC80E5229F91C700BD7B0E /* Buildable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CC80E4229F91C700BD7B0E /* Buildable.swift */; };
 		29CC80E7229F927100BD7B0E /* RatingStarBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CC80E6229F927100BD7B0E /* RatingStarBuilder.swift */; };
 		29EE96AD22A0078D00D84EA8 /* BaseControlView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EE96AC22A0078D00D84EA8 /* BaseControlView+Rx.swift */; };
-		29EE96AF22A00C6000D84EA8 /* BaseView+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EE96AE22A00C6000D84EA8 /* BaseView+Configuration.swift */; };
+		29EE96AF22A00C6000D84EA8 /* BaseControlView+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EE96AE22A00C6000D84EA8 /* BaseControlView+Configuration.swift */; };
 		7964F8DE003280CCCEE56688 /* Pods_SCReviewRatingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E45EA8DB962B3BDB6CA8F0 /* Pods_SCReviewRatingKit.framework */; };
 		9D61DC03F0FE9AB66F934F16 /* Pods_SCReviewRatingKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E8EFAEB711EFE2C1C518AFE /* Pods_SCReviewRatingKitTests.framework */; };
 		F426E007ECB99EA42F8283A8 /* ImageRatingDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F426E8941598A4C38FB06905 /* ImageRatingDrawable.swift */; };
@@ -61,11 +61,11 @@
 		29CC80D7229CEAB300BD7B0E /* Float+Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+Converter.swift"; sourceTree = "<group>"; };
 		29CC80DB229D0F8900BD7B0E /* Double+Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Converter.swift"; sourceTree = "<group>"; };
 		29CC80DD229E555500BD7B0E /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
-		29CC80DF229E562B00BD7B0E /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		29CC80DF229E562B00BD7B0E /* BaseControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseControlView.swift; sourceTree = "<group>"; };
 		29CC80E4229F91C700BD7B0E /* Buildable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buildable.swift; sourceTree = "<group>"; };
 		29CC80E6229F927100BD7B0E /* RatingStarBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingStarBuilder.swift; sourceTree = "<group>"; };
 		29EE96AC22A0078D00D84EA8 /* BaseControlView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseControlView+Rx.swift"; sourceTree = "<group>"; };
-		29EE96AE22A00C6000D84EA8 /* BaseView+Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseView+Configuration.swift"; sourceTree = "<group>"; };
+		29EE96AE22A00C6000D84EA8 /* BaseControlView+Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseControlView+Configuration.swift"; sourceTree = "<group>"; };
 		3C9F58DB70983C258FE1C57C /* Pods-SCReviewRatingKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCReviewRatingKitTests.debug.xcconfig"; path = "Target Support Files/Pods-SCReviewRatingKitTests/Pods-SCReviewRatingKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7E8EFAEB711EFE2C1C518AFE /* Pods_SCReviewRatingKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SCReviewRatingKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9787805AD6D0164012DA8A69 /* Pods-SCReviewRatingKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCReviewRatingKit.debug.xcconfig"; path = "Target Support Files/Pods-SCReviewRatingKit/Pods-SCReviewRatingKit.debug.xcconfig"; sourceTree = "<group>"; };
@@ -174,8 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				299A4151229C997E007192A5 /* SCReviewRatingView.swift */,
-				29CC80DF229E562B00BD7B0E /* BaseView.swift */,
-				29EE96AE22A00C6000D84EA8 /* BaseView+Configuration.swift */,
+				29CC80DF229E562B00BD7B0E /* BaseControlView.swift */,
+				29EE96AE22A00C6000D84EA8 /* BaseControlView+Configuration.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -450,7 +450,7 @@
 				299A4152229C997E007192A5 /* SCReviewRatingView.swift in Sources */,
 				F426EC66276493E13D6C66C6 /* Drawable.swift in Sources */,
 				F426E6E56750590A263CCE7D /* Drawing.swift in Sources */,
-				29EE96AF22A00C6000D84EA8 /* BaseView+Configuration.swift in Sources */,
+				29EE96AF22A00C6000D84EA8 /* BaseControlView+Configuration.swift in Sources */,
 				F426EAA1DEF4D18BCDE96562 /* RatingConfig.swift in Sources */,
 				F426EA8DB5268E3442912E14 /* RatingDrawable.swift in Sources */,
 				F426E007ECB99EA42F8283A8 /* ImageRatingDrawable.swift in Sources */,
@@ -461,7 +461,7 @@
 				F426E2ADA48AFE77E27B6E36 /* StarShape.swift in Sources */,
 				F426E367A182219409C427D1 /* Shadable.swift in Sources */,
 				29CC80E7229F927100BD7B0E /* RatingStarBuilder.swift in Sources */,
-				29CC80E0229E562B00BD7B0E /* BaseView.swift in Sources */,
+				29CC80E0229E562B00BD7B0E /* BaseControlView.swift in Sources */,
 				F426ECE1EF778683DFD77FEB /* ImageRatingDrawing.swift in Sources */,
 				F426EB40CEE1B72AEF9825DC /* RatingDrawing.swift in Sources */,
 			);
@@ -620,7 +620,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SCReviewRatingKit/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Source/SCReviewRatingKit/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -649,7 +649,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SCReviewRatingKit/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Source/SCReviewRatingKit/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
