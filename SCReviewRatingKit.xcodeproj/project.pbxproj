@@ -118,8 +118,7 @@
 		299A4118229C8A09007192A5 = {
 			isa = PBXGroup;
 			children = (
-				29EE96AA22A0077200D84EA8 /* RxSCReviewRatingKit */,
-				299A4124229C8A09007192A5 /* SCReviewRatingKit */,
+				29EE96B022A0113E00D84EA8 /* Source */,
 				299A412F229C8A09007192A5 /* SCReviewRatingKitTests */,
 				299A4123229C8A09007192A5 /* Products */,
 				18A83188FC912E654931D5A4 /* Pods */,
@@ -204,6 +203,15 @@
 				29EE96AC22A0078D00D84EA8 /* BaseControlView+Rx.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		29EE96B022A0113E00D84EA8 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				29EE96AA22A0077200D84EA8 /* RxSCReviewRatingKit */,
+				299A4124229C8A09007192A5 /* SCReviewRatingKit */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 		CFC2E127EB28A64504B1639C /* Frameworks */ = {
