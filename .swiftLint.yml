@@ -20,6 +20,7 @@ disabled_rules:
 excluded:
   - Carthage
   - Pods
+  - Example/Pods
   - vendor
 cyclomatic_complexity:
   warning: 15
