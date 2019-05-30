@@ -3,19 +3,19 @@ import RxSwift
 import RxCocoa
 import SCReviewRatingKit
 
-extension Reactive where Base: BaseControlView {
+public extension Reactive where Base: BaseControlView {
 
-  public var currentValue: ControlProperty<Float> {
+  var currentValue: ControlProperty<Float> {
     return base.rx.controlProperty(
       editingEvents: .valueChanged,
       getter: { base in
-        base.config.currentValue
+        base.currentValue
       }, setter: { base, currentValue in
-        base.config.currentValue = currentValue
+        base.currentValue = currentValue
       })
   }
 
-  public var changedCurrentValue: Binder<Float> {
+  var changedCurrentValue: Binder<Float> {
     return Binder(self.base) { base, result in
         base.currentValue = result
     }
