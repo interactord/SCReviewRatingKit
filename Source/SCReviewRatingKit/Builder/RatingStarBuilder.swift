@@ -1,14 +1,14 @@
 import UIKit
 
-struct RatingStarBuilder: Buildable {
-  var targetView: SCReviewRatingView
+public struct RatingStarBuilder: Buildable {
+  public var targetView: SCReviewRatingView
 
-  init() {
+  public init() {
     targetView = SCReviewRatingView(frame: .zero)
   }
 }
 
-extension RatingStarBuilder {
+public extension RatingStarBuilder {
 
   func setShoudUseImage(_ value: Bool) -> RatingStarBuilder {
     targetView.shouldUseImage = value
