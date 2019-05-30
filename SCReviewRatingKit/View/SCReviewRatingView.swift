@@ -28,7 +28,7 @@ extension SCReviewRatingView {
 }
 
 extension SCReviewRatingView: Configuration {
-	var shouldUseImage: Bool {
+	public var shouldUseImage: Bool {
 		get {
 			return config.shouldUseImage
 		}
@@ -41,7 +41,7 @@ extension SCReviewRatingView: Configuration {
 		}
 	}
 
-	var filledImage: UIImage? {
+	public var filledImage: UIImage? {
 		get {
 			return config.filledImage
 		}
@@ -54,7 +54,7 @@ extension SCReviewRatingView: Configuration {
 		}
 	}
 
-	var emptyImage: UIImage? {
+	public var emptyImage: UIImage? {
 		get {
 			return config.emptyImage
 		}
@@ -67,7 +67,7 @@ extension SCReviewRatingView: Configuration {
 		}
 	}
 
-	var halfImage: UIImage? {
+	public var halfImage: UIImage? {
 		get {
 			return  config.halfImage
 		}
@@ -80,7 +80,7 @@ extension SCReviewRatingView: Configuration {
 		}
 	}
 
-	var borderColor: UIColor? {
+	public var borderColor: UIColor? {
 		get {
 			return config.borderColor
 		}
@@ -93,7 +93,7 @@ extension SCReviewRatingView: Configuration {
 		}
 	}
 
-	var emptyStarColor: UIColor {
+	public var emptyStarColor: UIColor {
 		get {
 			return config.emptyStarColor
 		}
@@ -106,7 +106,7 @@ extension SCReviewRatingView: Configuration {
 		}
 	}
 
-	var borderWidth: CGFloat {
+	public var borderWidth: CGFloat {
 		get {
 			return config.borderWidth
 		}
@@ -119,7 +119,7 @@ extension SCReviewRatingView: Configuration {
 		}
 	}
 
-	var spacing: CGFloat {
+	public var spacing: CGFloat {
 		get {
 			return config.spacing
 		}
@@ -132,7 +132,7 @@ extension SCReviewRatingView: Configuration {
 		}
 	}
 
-	var minimumValue: UInt {
+	public var minimumValue: UInt {
 		get {
 			return config.minimumValue
 		}
@@ -145,7 +145,7 @@ extension SCReviewRatingView: Configuration {
 		}
 	}
 
-	var maximumValue: UInt {
+	public var maximumValue: UInt {
 		get {
 			return config.maximumValue
 		}
@@ -158,7 +158,7 @@ extension SCReviewRatingView: Configuration {
 		}
 	}
 
-	var currentValue: Float {
+	public var currentValue: Float {
 		get {
 			return config.currentValue
 		}
@@ -171,7 +171,7 @@ extension SCReviewRatingView: Configuration {
 		}
 	}
 
-	var allowHalfMode: Bool {
+	public var allowHalfMode: Bool {
 		get {
 			return config.allowHalfMode
 		}
@@ -184,7 +184,7 @@ extension SCReviewRatingView: Configuration {
 		}
 	}
 
-	var accurateHalfMode: Bool {
+	public var accurateHalfMode: Bool {
 		get {
 			return config.accurateHalfMode
 		}
@@ -197,7 +197,7 @@ extension SCReviewRatingView: Configuration {
 		}
 	}
 
-	var continuous: Bool {
+	public var continuous: Bool {
 		get {
 			return config.continuous
 		}
