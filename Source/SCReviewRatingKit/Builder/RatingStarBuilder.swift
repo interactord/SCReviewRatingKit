@@ -62,4 +62,21 @@ public extension RatingStarBuilder {
     targetView.continuous = continuous
     return self
   }
+
+  func setTouchEnabled(_ enabled: Bool) -> RatingStarBuilder {
+    targetView.isEnabled = enabled
+    return self
+  }
+
+  func setWidthAnchor(_ width: CGFloat) -> RatingStarBuilder {
+    targetView.translatesAutoresizingMaskIntoConstraints = false
+    targetView.widthAnchor.constraint(equalToConstant: width).isActive = true
+    return self
+  }
+
+  func setHeigthAnchor(_ height: CGFloat) -> RatingStarBuilder {
+    targetView.translatesAutoresizingMaskIntoConstraints = false
+    targetView.heightAnchor.constraint(equalToConstant: height).isActive = true
+    return self
+}
 }
