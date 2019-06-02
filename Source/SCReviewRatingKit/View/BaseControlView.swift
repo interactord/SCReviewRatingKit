@@ -193,9 +193,9 @@ extension BaseControlView {
     var value: Float = (location.x / cellWidth).toFloat()
 
     if config.allowHalfMode {
-      if !config.allowHalfMode {
+      if !config.accurateHalfMode {
         if (value + 0.5) < ceilf(value) {
-          value = floor(value)
+          value = floor(value) + 0.5
         } else {
           value = ceilf(value)
         }

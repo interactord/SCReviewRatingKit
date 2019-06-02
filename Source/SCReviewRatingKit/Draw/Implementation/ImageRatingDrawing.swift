@@ -45,11 +45,9 @@ extension ImageRatingDrawing: ImageRatingDrawable {
   }
 
   func drawAccurateHalfRatingImage(frame: CGRect, progress: CGFloat) {
-    var image = halfImage
-    var tempFrame = frame
 
-    if image != nil {
-      return drawImage(frame: frame, image: image)
+    if halfImage != nil {
+      return drawImage(frame: frame, image: halfImage)
     }
 
     /// outline
@@ -61,7 +59,6 @@ extension ImageRatingDrawing: ImageRatingDrawable {
       else { return }
 
     let imageFrame = CGRect(x: 0, y: 0, width: filledImage.size.width * filledImage.scale * progress, height: filledImage.size.height * filledImage.scale)
-    tempFrame.size.width *= progress
 
     let imageRef = filledCGImage.cropping(to: imageFrame)
     guard let croppedImage = imageRef else {
@@ -69,9 +66,10 @@ extension ImageRatingDrawing: ImageRatingDrawable {
     }
 
     let halfImage = UIImage(cgImage: croppedImage, scale: filledImage.scale, orientation: filledImage.imageOrientation)
-    image = halfImage.withRenderingMode(filledImage.renderingMode)
+    let newRenderImage = halfImage.withRenderingMode(filledImage.renderingMode)
+    let renderFrame = CGRect(x: frame.origin.x, y: frame.origin.y, width: frame.width * progress, height: frame.height)
 
-    return drawImage(frame: frame, image: image)
+    return drawImage(frame: renderFrame, image: newRenderImage)
   }
 
 }
