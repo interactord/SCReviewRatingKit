@@ -158,16 +158,17 @@ public class BaseControlView: UIControl {
   }
 
   func changedValueAndChangedAction(to value: Float, sendAction: Bool) {
-		if config.currentValue == value
-				 && value < config.minimumValue.toFloat()
-				 && value > config.maximumValue.toFloat() {
-			return
-		}
-		config.currentValue = value
-		if sendAction {
-			sendActions(for: .valueChanged)
-		}
-		self.setNeedsDisplay()
+
+    if config.currentValue == value
+      || value < config.minimumValue.toFloat()
+      || value > config.maximumValue.toFloat() {
+      return
+    }
+    config.currentValue = value
+    if sendAction {
+      sendActions(for: .valueChanged)
+    }
+    self.setNeedsDisplay()
   }
 
   public func startDraw(_ rect: CGRect, backgroundColor: UIColor) {
