@@ -19,6 +19,7 @@ public extension RatingStarBuilder {
     targetView.filledImage = filledImage
     targetView.halfImage = halfImage
     targetView.emptyImage = emptyImage
+    targetView.shouldUseImage = true
     return self
   }
 
