@@ -41,7 +41,7 @@ extension ImageRatingDrawing: ImageRatingDrawable {
   }
 
   func drawHalfRatingImage(frame: CGRect) {
-    drawAccurateHalfRatingImage(frame: frame, progress: 0.0)
+    drawAccurateHalfRatingImage(frame: frame, progress: 0.5)
   }
 
   func drawAccurateHalfRatingImage(frame: CGRect, progress: CGFloat) {
@@ -64,7 +64,6 @@ extension ImageRatingDrawing: ImageRatingDrawable {
     tempFrame.size.width *= progress
 
     let imageRef = filledCGImage.cropping(to: imageFrame)
-
     guard let croppedImage = imageRef else {
       return
     }
