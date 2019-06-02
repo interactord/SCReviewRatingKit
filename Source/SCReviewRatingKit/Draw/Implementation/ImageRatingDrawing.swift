@@ -40,8 +40,8 @@ extension ImageRatingDrawing: ImageRatingDrawable {
     drawImage(frame: frame, image: image)
   }
 
-  func drawHalfRatingImage(frame: CGRect, shapeRatingDrawer: ShapeRatingDrawable) {
-    shapeRatingDrawer.drawAccurateHalfRatingShape(frame: frame, progress: 0.0)
+  func drawHalfRatingImage(frame: CGRect) {
+    drawAccurateHalfRatingImage(frame: frame, progress: 0.0)
   }
 
   func drawAccurateHalfRatingImage(frame: CGRect, progress: CGFloat) {

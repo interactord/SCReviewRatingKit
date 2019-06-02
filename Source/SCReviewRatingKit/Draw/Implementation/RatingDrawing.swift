@@ -25,7 +25,7 @@ extension RatingDrawing: RatingDrawable {
 
   func drawHalfRating(frame: CGRect) {
     shouldUseImage
-      ? imageRatingDrawer.drawHalfRatingImage(frame: frame, shapeRatingDrawer: shapeRatingDrawer)
+      ? imageRatingDrawer.drawHalfRatingImage(frame: frame)
       : shapeRatingDrawer.drawHalfRatingShape(frame: frame)
   }
 
