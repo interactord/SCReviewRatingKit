@@ -42,8 +42,9 @@ extension Drawing: Drawable {
         } else {
           ratingDrawing.drawHalfRating(frame: aFrame)
         }
+      } else {
+        ratingDrawing.drawRating(frame: aFrame, highlighted: highlighted)
       }
-      ratingDrawing.drawRating(frame: aFrame, highlighted: highlighted)
     }
   }
 }
