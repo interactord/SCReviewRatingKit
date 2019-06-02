@@ -53,7 +53,7 @@ extension Drawing {
   private func getDrawCenter(_ rect: CGRect, cellWidth: CGFloat, index: UInt) -> CGPoint {
     let cgFloatIndex = CGFloat(index)
     return .init(
-      x: (cellWidth * cgFloatIndex) + cellWidth / 2 + config.spacing + 1,
+      x: cellWidth * cgFloatIndex + cellWidth / 2 + config.spacing * cgFloatIndex + 1,
       y: rect.size.height / 2
     )
   }
